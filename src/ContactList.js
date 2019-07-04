@@ -16,7 +16,7 @@ class ContactDetail extends Component {
         const {first_name,avatar_url, last_name, phone } = this.props;
         return (
             <ul className="list">
-                <li><img src={avatar_url} alt="avatar"></img></li>
+                <li><img src={avatar_url} alt={first_name}></img></li>
                 <li>{first_name}</li>
                 <li>{last_name}</li>
                 <li>{phone}</li>
