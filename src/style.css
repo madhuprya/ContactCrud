@@ -1,0 +1,22 @@
+.list{
+    margin-top: 100px;
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+}
+.list>li{
+    align-self: flex-start;
+}
+.list>button{
+    border-style: none;
+    outline: none;
+    border: 1px solid cadetblue;
+    border-radius: 5px;
+    height: 25px;
+    background-color: white;
+    color: cadetblue;
+    font-size: 0.8em;
+}
+img{
+    margin-top: -25px;
+}
