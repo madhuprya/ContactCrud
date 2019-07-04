@@ -1,7 +1,7 @@
 import React, {
     Component
   } from 'react';
-import ContactDetail from './ContactDetail';
+import ContactDetail from './ContactList';
 import contacts from './contacts.json';
 // import AddContact from './AddContact';
 
