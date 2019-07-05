@@ -13,15 +13,16 @@ class ContactDetail extends Component {
         onDelete(first_name);
     }
     render() {
-        const {first_name,avatar_url, last_name, phone } = this.props;
+        const {first_name,avatar_url, phone } = this.props;
         return (
-            <ul className="list">
-                <li><img src={avatar_url} alt={first_name}></img></li>
-                <li>{first_name}</li>
-                <li>{last_name}</li>
-                <li>{phone}</li>
-                <button onClick={this.onClick}>Delete</button>
-            </ul>
+                <li className="list">
+                    <img src={avatar_url} alt={first_name} height="42"></img>
+                    <p>{first_name}</p>
+                    <p>{phone}</p>
+                    <button onClick={this.onClick}>Details</button>
+                    <button onClick={this.onClick}>Edit</button>
+                    <button onClick={this.onClick}>Delete</button>
+                </li>
         );
     }
 }

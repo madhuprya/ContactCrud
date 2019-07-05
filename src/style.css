@@ -1,13 +1,28 @@
 .list{
-    margin-top: 100px;
+    margin-top: 25px;
+    
+}
+.contact-list{
+    width: 70%;
+    background-color: azure;
+    margin: auto;
+    text-align: left;
+}
+.head{
+    color: black;
+}
+li>p{
+    margin: 0%;
+}
+li>*{
+    align-self: center;
+}
+.contact-list>li{
     display: flex;
     list-style: none;
     justify-content: space-evenly;
 }
-.list>li{
-    align-self: flex-start;
-}
-.list>button{
+.list>button, .add{
     border-style: none;
     outline: none;
     border: 1px solid cadetblue;
@@ -20,5 +35,81 @@
 img{
     margin-top: -25px;
     border-radius: 30px;
-    border: 1px solid cadetblue;
+    border: 1px solid cadetblue;    
+    background-color: rgb(245, 238, 226);
+
 }
+.add{
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    height: 30px;
+    background-color: cadetblue;
+    color: wheat;
+}
+h1{
+    margin-left: 12%;
+}
+.contact-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: absolute;
+    top:15%;
+    right:9%;
+    padding: 10px;
+    width: 35%;
+    color: cadetblue;
+    background-color: wheat;
+    font-size: 0.8em;
+    box-shadow: 5px 10px cadetblue;
+}
+#profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+#form{
+    display: flex;
+    flex-direction: column;
+}
+
+#form>input{
+    height: 30px;
+    outline: none;
+    border-style:none;
+    text-align: center;
+    margin-left: 30%;
+    border: 1px solid cadetblue;
+    margin-top: 5px;
+    width: 300px;
+    border-radius: 5px;
+}
+#save{
+    border-style: none;
+    outline: none;
+    border: 1px solid cadetblue;
+    border-radius: 5px;
+    height: 25px;
+    background-color: white;
+    color: cadetblue;
+    font-size: 0.8em;
+    width: 100px;
+}
+#prof-img>select{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
+#prof-img>img{
+    position: absolute;
+    top: 20%;
+    left: 25%;
+}
+#profile>input{
+    height: 30px;
+    position: absolute;
+    left: 25%;
+    bottom: 10%;
+}
+
