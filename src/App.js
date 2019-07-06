@@ -21,7 +21,7 @@ class App extends Component {
     }
     getProducts(){
         return this.state.contacts;
-    }
+    } 
     onDelete(name){
         const contacts = this.getProducts();
         const filterContacts = contacts.filter(contact => {
@@ -31,7 +31,6 @@ class App extends Component {
     }
     toggleAddContact = ()=> {
         this.setState({
-            
             showAddContact: !this.state.showAddContact
         });
     }
@@ -40,6 +39,19 @@ class App extends Component {
         alert(contact.avatar_url);
         contact["id"]= this.state.contacts.length + 1;
         contacts.push(contact);
+        this.setState({contacts,showAddContact: !this.state.showAddContact})
+    }
+    updateSubmit =(con) => {
+        console.log(con)
+        alert(con.first_name);
+        let contacts = this.getProducts();
+        contacts = contacts.map(contact => {
+            if(contact.id === con.id){
+                contact = {...con} ;
+            }
+            return contact; 
+        })
+
         this.setState({contacts})
     }
     render() {
@@ -51,10 +63,9 @@ class App extends Component {
                 <button className="add" onClick={this.toggleAddContact}>Add Contact</button>
                 <ul className="contact-list">
                     <li className="head">
-                        <p>Profile Image</p>
-                        <p>First Name</p>
+                        <p>Profile</p>
+                        <p>Name</p>
                         <p>Phone</p>
-                        <p>Details</p>
                         <p>Edit</p>
                         <p>Delete</p>
                     </li>
@@ -65,6 +76,7 @@ class App extends Component {
                                 key={contact.id}
                                 {...contact}
                                 onDelete={this.onDelete}
+                                updateSubmit={this.updateSubmit}
                             />             
                         );
                     })
