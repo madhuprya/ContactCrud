@@ -36,14 +36,14 @@ class App extends Component {
     }
     onSave = (contact) =>{
         const contacts = this.getProducts();
-        alert(contact.avatar_url);
+        // alert(contact.avatar_url);
         contact["id"]= this.state.contacts.length + 1;
         contacts.push(contact);
         this.setState({contacts,showAddContact: !this.state.showAddContact})
     }
     updateSubmit =(con) => {
         console.log(con)
-        alert(con.first_name);
+        // alert(con.first_name);
         let contacts = this.getProducts();
         contacts = contacts.map(contact => {
             if(contact.id === con.id){
@@ -60,15 +60,9 @@ class App extends Component {
                 <h1>
                     Contact List
                 </h1>
+                {/* <input type="search" placeholder="search name" className="search"></input> */}
                 <button className="add" onClick={this.toggleAddContact}>Add Contact</button>
                 <ul className="contact-list">
-                    <li className="head">
-                        <p>Profile</p>
-                        <p>Name</p>
-                        <p>Phone</p>
-                        <p>Edit</p>
-                        <p>Delete</p>
-                    </li>
                 {
                     this.state.contacts.map(contact => {
                         return(

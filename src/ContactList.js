@@ -52,14 +52,14 @@ class ContactDetail extends Component {
                     {
                         this.state.isEdit 
                         ? (
-                            <form onSubmit={this.onUpdateSubmit}>
+                            <form onSubmit={this.onUpdateSubmit} id="form">
                                     <select value={this.state.avatar_url} name="avatar_url" onChange={this.onUpdate} id="save">
                                         <option value="https://robohash.org/iustoautemfacere.png?size=100x100&set=set1">avatar1</option>
                                         <option value="https://robohash.org/temporibusilloamet.png?size=100x100&set=set1">avatar2</option>
                                         <option value="https://robohash.org/etquiaquia.png?size=100x100&set=set1">avatar3</option>
                                         <option value="https://robohash.org/quistemporeconsequatur.png?size=100x100&set=set1">avatar4</option>
                                     </select>
-                                    <img src={this.state.avatar_url} alt="abc" height="42"></img>  
+                                    <img src={this.state.avatar_url} alt="abc" height="42" width="42"></img>  
                                     <input name="first_name" type="text" value={this.state.first_name} placeholder="first name" onChange={this.onUpdate} />
                                     <input name="last_name" type="text" value={this.state.last_name} placeholder="last name" onChange={this.onUpdate} />
                                     <input name="email" type="email" value={this.state.email} placeholder="email" onChange={this.onUpdate} />

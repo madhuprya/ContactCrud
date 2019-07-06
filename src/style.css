@@ -1,9 +1,10 @@
 .list{
-    margin-top: 25px;
+    margin-top: 150px;
+    margin-left: -300px;
     
 }
 .contact-list{
-    width: 70%;
+    width: 50%;
     background-color: azure;
     margin: auto;
     text-align: left;
@@ -33,7 +34,7 @@ li>*{
     font-size: 0.8em;
 }
 img{
-    margin-top: -25px;
+    margin-top: 0px;
     border-radius: 30px;
     border: 1px solid cadetblue;    
     background-color: rgb(245, 238, 226);
