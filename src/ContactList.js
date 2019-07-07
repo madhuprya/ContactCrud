@@ -46,6 +46,7 @@ class ContactDetail extends Component {
     
     }
     render() {
+
         const {first_name, avatar_url, phone } = this.props;
         return (
                 <li className="list">

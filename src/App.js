@@ -11,7 +11,8 @@ class App extends Component {
         super(props);
         this.state = {
             contacts: JSON.parse(localStorage.getItem('contactList')),
-            showAddContact: false
+            showAddContact: false,
+            search: ''
         };
         this.onDelete = this.onDelete.bind(this);
     }
@@ -54,17 +55,27 @@ class App extends Component {
 
         this.setState({contacts})
     }
+    onSearch = (event) => {
+        this.setState({
+            search: event.target.value
+        })
+        console.log(this.state.search);
+    }
     render() {
+        let filterContact = this.state.contacts.filter((contact) => {
+            return contact.first_name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        });
+
         return (
             <div className="App">
                 <h1>
                     Contact List
                 </h1>
-                {/* <input type="search" placeholder="search name" className="search"></input> */}
+                <input type="search" placeholder="search name" className="search" value={this.state.search} onChange={this.onSearch}></input>
                 <button className="add" onClick={this.toggleAddContact}>Add Contact</button>
                 <ul className="contact-list">
                 {
-                    this.state.contacts.map(contact => {
+                    filterContact.map(contact => {
                         return(
                             <ContactDetail
                                 key={contact.id}
