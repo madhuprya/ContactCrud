@@ -1,92 +1,11 @@
-.list{
-    margin-top: 150px;
-    margin-left: -300px;
-    
-}
-.contact-list{
-    width: 50%;
-    background-color: azure;
-    margin: auto;
-    text-align: left;
-}
-.head{
-    color: black;
-}
-li>p{
-    margin: 0%;
-}
-li>*{
-    align-self: center;
-}
-.contact-list>li{
-    display: flex;
-    list-style: none;
-    justify-content: space-evenly;
-}
-.list>button, .add{
-    border-style: none;
-    outline: none;
-    border: 1px solid cadetblue;
-    border-radius: 5px;
-    height: 25px;
-    background-color: white;
-    color: cadetblue;
-    font-size: 0.8em;
-}
-img{
-    margin-top: 0px;
-    border-radius: 30px;
-    border: 1px solid cadetblue;    
-    background-color: rgb(245, 238, 226);
 
-}
-.add{
-    position: absolute;
-    top: 10%;
-    right: 10%;
-    height: 30px;
-    background-color: cadetblue;
-    color: wheat;
-}
-h1{
-    margin-left: 12%;
-}
-.contact-form{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    position: absolute;
-    top:15%;
-    right:9%;
-    padding: 10px;
-    width: 35%;
-    color: cadetblue;
-    background-color: wheat;
-    font-size: 0.8em;
-    box-shadow: 5px 10px cadetblue;
-}
-#profile{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-#form{
-    display: flex;
-    flex-direction: column;
-}
-
-#form>input{
-    height: 30px;
-    outline: none;
-    border-style:none;
-    text-align: center;
-    margin-left: 30%;
-    border: 1px solid cadetblue;
-    margin-top: 5px;
-    width: 300px;
-    border-radius: 5px;
-}
-#save{
+ .contact-list{
+     list-style: none;
+ }
+ .list{
+     margin: 25px 0;
+ }
+ button , select{
     border-style: none;
     outline: none;
     border: 1px solid cadetblue;
@@ -96,21 +15,27 @@ h1{
     color: cadetblue;
     font-size: 0.8em;
     width: 100px;
-}
-#prof-img>select{
-    position: absolute;
-    top: 10%;
-    left: 5%;
-}
-#prof-img>img{
-    position: absolute;
-    top: 20%;
-    left: 25%;
-}
-#profile>input{
+ }
+ input{
     height: 30px;
-    position: absolute;
-    left: 25%;
-    bottom: 10%;
-}
+    outline: none;
+    border-style:none;
+    text-align: center;
+    border: 1px solid cadetblue;
+    margin-top: 5px;
+    width: 300px;
+    border-radius: 5px;
+ }
+ #save , #form{
+     margin:10px 35px;
 
+ }
+ .contact-form, .search, .add{
+     margin-left:35px;
+ }
+ #save{
+     width: 80px;
+ }
+ .contact-form,.update-form{
+    box-shadow: 5px 10px #9fd5ee;
+}

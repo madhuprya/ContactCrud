@@ -49,15 +49,15 @@ class AddContact extends Component {
                         <option value="https://robohash.org/quistemporeconsequatur.png?size=100x100&set=set1">avatar4</option>
                     </select>
                     <img src={this.state.avatar_url} alt="abc"></img>  
-                    </div> 
                     <input id="save" type="submit" value="Submit" />             
+                    </div> 
                 </label>
                 <div id="form">
                     <input name="first_name" type="text" value={this.state.first_name} placeholder="first name" onChange={this.handleChange} />
-                    <input name="last_name" type="text" value={this.state.last_name} placeholder="last name" onChange={this.handleChange} />
+                    <input name="last_name" type="text" value={this.state.last_name} placeholder="last name" onChange={this.handleChange} /> 
                     <input name="email" type="email" value={this.state.email} placeholder="email" onChange={this.handleChange} />
                     <input name="phone" type="number" placeholder="phone no" value={this.state.phone} onChange={this.handleChange} />
-                </div>               
+                </div>
             </form>
         );
     }

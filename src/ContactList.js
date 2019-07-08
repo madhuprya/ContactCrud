@@ -53,7 +53,7 @@ class ContactDetail extends Component {
                     {
                         this.state.isEdit 
                         ? (
-                            <form onSubmit={this.onUpdateSubmit} id="form">
+                            <form onSubmit={this.onUpdateSubmit} className="update-form">
                                     <select value={this.state.avatar_url} name="avatar_url" onChange={this.onUpdate} id="save">
                                         <option value="https://robohash.org/iustoautemfacere.png?size=100x100&set=set1">avatar1</option>
                                         <option value="https://robohash.org/temporibusilloamet.png?size=100x100&set=set1">avatar2</option>

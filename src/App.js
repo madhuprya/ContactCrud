@@ -6,11 +6,12 @@ import contacts from './contacts.json';
 import AddContact from './AddContact';
 
 localStorage.setItem('contactList', JSON.stringify(contacts));
+const cont = JSON.parse(localStorage.getItem('contactList'));
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            contacts: JSON.parse(localStorage.getItem('contactList')),
+            contacts: cont,
             showAddContact: false,
             search: ''
         };
@@ -39,7 +40,7 @@ class App extends Component {
         const contacts = this.getProducts();
         // alert(contact.avatar_url);
         contact["id"]= this.state.contacts.length + 1;
-        contacts.push(contact);
+        contacts.unshift(contact);
         this.setState({contacts,showAddContact: !this.state.showAddContact})
     }
     updateSubmit =(con) => {
@@ -73,6 +74,12 @@ class App extends Component {
                 </h1>
                 <input type="search" placeholder="search name" className="search" value={this.state.search} onChange={this.onSearch}></input>
                 <button className="add" onClick={this.toggleAddContact}>Add Contact</button>
+                {this.state.showAddContact ? 
+                    <AddContact
+                    onSave={this.onSave}
+                    />
+                    : null
+                }
                 <ul className="contact-list">
                 {
                     filterContact.map(contact => {
@@ -87,13 +94,7 @@ class App extends Component {
                     })
                 }
                 </ul>
-                {this.state.showAddContact ? 
-                    <AddContact
-                    saveAndClose={this.togglePopup}
-                    onSave={this.onSave}
-                    />
-                    : null
-                }
+              
             </div>
         );
     }
