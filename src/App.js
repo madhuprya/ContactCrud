@@ -89,7 +89,6 @@ class App extends Component {
                 </ul>
                 {this.state.showAddContact ? 
                     <AddContact
-                    saveAndClose={this.togglePopup}
                     onSave={this.onSave}
                     />
                     : null
