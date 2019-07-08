@@ -15,8 +15,10 @@
     color: cadetblue;
     font-size: 0.8em;
     width: 100px;
+    margin-right: 2px;
  }
  input{
+    margin-right: 2px;
     height: 30px;
     outline: none;
     border-style:none;
@@ -36,6 +38,11 @@
  #save{
      width: 80px;
  }
- .contact-form,.update-form{
-    box-shadow: 5px 10px #9fd5ee;
+ 
+img{
+    border-radius: 25px;
+    border: 1px solid cadetblue;
+}
+hr{
+    color: cadetblue;
 }

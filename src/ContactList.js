@@ -54,6 +54,7 @@ class ContactDetail extends Component {
                         this.state.isEdit 
                         ? (
                             <form onSubmit={this.onUpdateSubmit} className="update-form">
+                                    <hr></hr>
                                     <select value={this.state.avatar_url} name="avatar_url" onChange={this.onUpdate} id="save">
                                         <option value="https://robohash.org/iustoautemfacere.png?size=100x100&set=set1">avatar1</option>
                                         <option value="https://robohash.org/temporibusilloamet.png?size=100x100&set=set1">avatar2</option>
@@ -65,7 +66,8 @@ class ContactDetail extends Component {
                                     <input name="last_name" type="text" value={this.state.last_name} placeholder="last name" onChange={this.onUpdate} />
                                     <input name="email" type="email" value={this.state.email} placeholder="email" onChange={this.onUpdate} />
                                     <input name="phone" type="text" placeholder="phone no" value={this.state.phone} onChange={this.onUpdate} />
-                                    <input id="save" type="submit" value="Save" />             
+                                    <input id="save" type="submit" value="Save" />          
+                                    <hr></hr>
                             </form>
                         )
                         :(
@@ -75,6 +77,7 @@ class ContactDetail extends Component {
                                 <p>{phone}</p>
                                 <button onClick={ (event) => {this.onUpdate(event)}}>Edit</button>
                                 <button onClick={this.onClick}>Delete</button>
+                                <br></br><hr></hr>
                             </div>
                         )
                     }

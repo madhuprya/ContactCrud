@@ -40,6 +40,7 @@ class AddContact extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit} className="contact-form">
+               <hr></hr>
                 <label id="profile">
                     <div id="prof-img">
                     <select value={this.state.avatar_url} name="avatar_url" onChange={this.handleChange} id="save">
@@ -58,6 +59,7 @@ class AddContact extends Component {
                     <input name="email" type="email" value={this.state.email} placeholder="email" onChange={this.handleChange} />
                     <input name="phone" type="number" placeholder="phone no" value={this.state.phone} onChange={this.handleChange} />
                 </div>
+                <hr></hr>
             </form>
         );
     }
