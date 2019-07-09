@@ -69,9 +69,9 @@ class App extends Component {
 
         return (
             <div className="App">
-                <h1>
+                <h2>
                     Contact List
-                </h1>
+                </h2    >
                 <input type="search" placeholder="search name" className="search" value={this.state.search} onChange={this.onSearch}></input>
                 <button className="add" onClick={this.toggleAddContact}>Add Contact</button>
                 {this.state.showAddContact ? 
