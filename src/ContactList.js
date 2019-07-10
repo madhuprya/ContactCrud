@@ -2,14 +2,16 @@ import React, {
     Component
   } from 'react';
   import './style.css';
-import UpdateContact from './UpdateContact';
 
 class ContactDetail extends Component {
     constructor(props){
         super(props);
         this.state = {
-            isEdit: false,
-            props: this.props
+            avatar_url: this.props.avatar_url,
+            first_name: this.props.first_name,
+            last_name: this.props.last_name,
+            email: this.props.email,
+            phone: this.props.phone
         }
     }
     onClick = () => {
@@ -17,41 +19,32 @@ class ContactDetail extends Component {
         onDelete(first_name);
     }
     onEdit = () => {
-            this.setState({
-            isEdit: true,
-        })
+        const contact = {
+            id: this.props.id,
+            first_name : this.state.first_name , 
+            last_name: this.state.last_name , 
+            email: this.state.email , 
+            avatar_url: this.state.avatar_url , 
+            phone: this.state.phone
+        } 
+        this.props.onEdit(contact);
     }
-    afterEdit = () => {
-        this.setState({
-        isEdit: false,
-    })
-}
-  
     render() {
 
         const {first_name, avatar_url, phone } = this.props;
         return (
                 <li className="list">
-                    {
-                        this.state.isEdit 
-                        ? (
-                          <UpdateContact
-                          contact={this.state.props}
-                          edit={this.afterEdit}
-                          />                        
-                        )
-                        :(
-                            <div className="flex">
-                                <img src={avatar_url} alt={first_name} height="42"></img>
-                                <p>{first_name}</p>
-                                <p>{phone}</p>
-                                <button onClick= {this.onEdit}>Edit</button>
-                                <button onClick={this.onClick}>Delete</button>
-                                <br></br><hr></hr>
-                            </div>
-                        )
-                    }
                    
+                    {
+                        <div className="flex" id="flex">
+                            <img src={avatar_url} alt={first_name} height="42"></img>
+                            <p>{first_name}</p>
+                            <p>{phone}</p>
+                            <button onClick= {this.onEdit}>Edit</button>
+                            <button onClick={this.onClick}>Delete</button>
+                            <br></br><hr></hr>
+                        </div>
+                    }
                 </li>
         );
     }

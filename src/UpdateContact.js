@@ -7,12 +7,14 @@ class UpdateContact extends Component {
     constructor(props){
         super(props);
         this.state = {
-            avatar_url: this.props.contact.avatar_url,
-            first_name: this.props.contact.first_name,
-            last_name: this.props.contact.last_name,
-            email: this.props.contact.email,
-            phone: this.props.contact.phone
+            cont: this.props.onEdit,
+            avatar_url: this.props.onEdit.avatar_url,
+            first_name: this.props.onEdit.first_name,
+            last_name: this.props.onEdit.last_name,
+            email: this.props.onEdit.email,
+            phone: this.props.onEdit.phone
         }
+        console.log(this.state.cont)
     }
     onUpdate = (event) => {
         const target = event.target;    
@@ -24,16 +26,15 @@ class UpdateContact extends Component {
         console.log(this.props.id);
         event.preventDefault();
         const contact = {
-            id: this.props.contact.id,
+            id: this.props.onEdit.id,
             first_name : this.state.first_name , 
             last_name: this.state.last_name , 
             email: this.state.email , 
             avatar_url: this.state.avatar_url , 
             phone: this.state.phone
         } 
-        this.props.contact.updateSubmit(contact);
-        this.props.edit();
-    
+        this.props.updateSubmit(contact);
+        this.props.afterEdit();
     }
     render() {
         return (
@@ -52,7 +53,6 @@ class UpdateContact extends Component {
                     <input id="save" type="submit" value="Save" />          
                     <hr></hr>
             </form>
-                      
         );
     }
 }

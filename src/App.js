@@ -4,28 +4,25 @@ import React, {
 import ContactDetail from './ContactList';
 import contacts from './contacts.json';
 import AddContact from './AddContact';
+import UpdateContact from './UpdateContact';
 
 localStorage.setItem('contactList', JSON.stringify(contacts));
 const cont = JSON.parse(localStorage.getItem('contactList'));
+
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            isEdit: false,
             contacts: cont,
             showAddContact: false,
-            search: ''
+            search: '',
+            editData: null
         };
         this.onDelete = this.onDelete.bind(this);
     }
-    componentWillMount(){
-        const contacts = this.getProducts();
-        this.setState({contacts});
-    }
-    getProducts(){
-        return this.state.contacts;
-    } 
     onDelete(name){
-        const contacts = this.getProducts();
+        const contacts = this.state.contacts;
         const filterContacts = contacts.filter(contact => {
             return contact.first_name !== name; 
         });
@@ -37,16 +34,27 @@ class App extends Component {
         });
     }
     onSave = (contact) =>{
-        const contacts = this.getProducts();
+        const contacts = this.state.contacts;
         // alert(contact.avatar_url);
         contact["id"]= this.state.contacts.length + 1;
         contacts.unshift(contact);
         this.setState({contacts,showAddContact: !this.state.showAddContact})
     }
+    onEdit = (contact) => {   
+        this.setState({
+            isEdit: true,
+            editData: contact
+        })
+    }
+    afterEdit = () => {
+        this.setState({
+            isEdit: false,
+        })
+    }
     updateSubmit =(con) => {
         console.log(con)
         // alert(con.first_name);
-        let contacts = this.getProducts();
+        let contacts = this.state.contacts;
         contacts = contacts.map(contact => {
             if(contact.id === con.id){
                 contact = {...con} ;
@@ -71,7 +79,7 @@ class App extends Component {
             <div className="App">
                 <h2>
                     Contact List
-                </h2    >
+                </h2>
                 <input type="search" placeholder="search name" className="search" value={this.state.search} onChange={this.onSearch}></input>
                 <button className="add" onClick={this.toggleAddContact}>Add Contact</button>
                 {this.state.showAddContact ? 
@@ -80,23 +88,33 @@ class App extends Component {
                     />
                     : null
                 }
-                <ul className="contact-list">
+                {
+                    this.state.isEdit 
+                        ? 
+                        <UpdateContact
+                        onEdit = {this.state.editData}
+                        afterEdit={this.afterEdit}
+                        updateSubmit={this.updateSubmit}
+                        />                        
+                        :  null
+                }
+               <ul className="contact-list">
                 {
                     filterContact.map(contact => {
                         return(
-                            <ContactDetail
+                            <ContactDetail ref="child"
                                 key={contact.id}
                                 {...contact}
                                 onDelete={this.onDelete}
                                 updateSubmit={this.updateSubmit}
+                                onEdit = {this.onEdit}
                             />             
                         );
                     })
                 }
                 </ul>
-              
             </div>
-        );
+        )
     }
 }
 

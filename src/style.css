@@ -54,3 +54,6 @@ hr{
 #u-img{
     background-color: rgb(170, 236, 238);
 }
+.contact-form{
+    z-index: 1;
+}
